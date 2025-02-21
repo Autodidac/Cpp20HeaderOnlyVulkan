@@ -15,6 +15,9 @@ The engine supports several build environments including CMake, VSCode, and MSVC
 
 #### With VSCode
 - Use the provided `tasks.json` file to manage your build tasks.
+- You can `configure gcc` or `configure clang` and `build gcc` or `build all` there is also a `clean` and `clean all` task options
+- The CMake vscode extension is primarily used and will be configured for Linux, but may also work with the build options for that at the bottom of vscode or vscode clones like cursor
+- You can `configure CMake` and `build CMake` or `install CMake` using those tasks, this uses the Ninja build system.
 
 ---
 
