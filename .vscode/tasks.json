@@ -1,0 +1,168 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Configure (GCC)",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "-S",
+        ".",
+        "-B",
+        "Bin/GCC Release",
+        "-DCMAKE_INSTALL_PREFIX=${workspaceFolder}/built",
+        "-DCMAKE_TOOLCHAIN_FILE=/home/dude/Documents/repos/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DCMAKE_C_COMPILER=gcc",
+        "-DCMAKE_CXX_COMPILER=g++"
+      ],
+      "options": {
+        "env": {
+          "VCPKG_FEATURE_FLAGS": "manifests",
+          "VCPKG_INSTALLATION_ROOT": "${workspaceFolder}/vcpkg_installed"
+        }
+      },
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build (GCC)",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--build",
+        "Bin/build_gcc"
+      ],
+      "dependsOn": "Configure (GCC)",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Configure (Clang)",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "-S",
+        ".",
+        "-B",
+        "Bin/Clang-Release",
+        "-DCMAKE_INSTALL_PREFIX=${workspaceFolder}/built",
+        "-DCMAKE_TOOLCHAIN_FILE=/home/dude/Documents/repos/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DCMAKE_C_COMPILER=clang",
+        "-DCMAKE_CXX_COMPILER=clang++"
+      ],
+      "options": {
+        "env": {
+          "VCPKG_FEATURE_FLAGS": "manifests",
+          "VCPKG_INSTALLATION_ROOT": "${workspaceFolder}/vcpkg_installed"
+        }
+      },
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build (Clang)",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--build",
+        "Bin/build_clang"
+      ],
+      "dependsOn": "Configure (Clang)",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Clean (GCC)",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--build",
+        "Bin/build_gcc",
+        "--target",
+        "clean"
+      ],
+      "group": "none",
+      "problemMatcher": []
+    },
+    {
+      "label": "Clean (Clang)",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--build",
+        "Bin/build_clang",
+        "--target",
+        "clean"
+      ],
+      "group": "none",
+      "problemMatcher": []
+    },
+    {
+      "label": "Clean All",
+      "type": "shell",
+      "command": "rm",
+      "args": [
+        "-rf",
+        "Bin/build_gcc",
+        "Bin/build_clang",
+        "vcpkg_installed"
+      ],
+      "group": "none",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build All",
+      "dependsOn": [
+        "Build (GCC)",
+        "Build (Clang)"
+      ],
+      "type": "shell",
+      "command": "echo",
+      "args": [
+        "Build all compilers complete."
+      ],
+      "group": "build"
+    },
+    {
+      "type": "cmake",
+      "label": "CMake: configure",
+      "command": "configure",
+      "preset": "${command:cmake.activeConfigurePresetName}",
+      "problemMatcher": [],
+      "detail": "CMake template configure task"
+    },
+    {
+      "type": "cmake",
+      "label": "CMake: build",
+      "command": "build",
+      "targets": [
+        "all"
+      ],
+      "preset": "${command:cmake.activeBuildPresetName}",
+      "group": "build",
+      "problemMatcher": [],
+      "detail": "CMake template build task"
+    },
+    {
+      "type": "cmake",
+      "label": "CMake: clean",
+      "command": "clean",
+      "preset": "${command:cmake.activeBuildPresetName}",
+      "problemMatcher": [],
+      "detail": "CMake template clean task"
+    },
+    {
+      "type": "cmake",
+      "label": "CMake: install",
+      "command": "install",
+      "preset": "${command:cmake.activeBuildPresetName}",
+      "problemMatcher": [],
+      "detail": "CMake template install task"
+    }
+  ]
+}
