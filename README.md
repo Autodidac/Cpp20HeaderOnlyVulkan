@@ -32,19 +32,19 @@ Before using these scripts, make sure they are executable:
 ```bash
 chmod +x ./VulkanSDK/install_vulkansdk_debian.sh
 chmod +x ./VulkanSDK/uninstall_vulkansdk_debian.sh
-``` End of executable permissions
+```
 
 To install the Vulkan SDK on Debian-based systems, run:
 
 ```bash
 ./VulkanSDK/install_vulkansdk_debian.sh
-``` End of installation command
+```
 
 To uninstall the Vulkan SDK, run:
 
 ```bash
 ./VulkanSDK/uninstall_vulkansdk_debian.sh
-``` End of uninstallation command
+```
 
 #### Build and Install Commands
 
@@ -55,12 +55,12 @@ You can build and install the engine using the provided scripts. For example:
   ./build.sh gcc Release
   ./install.sh gcc Release
   ./run.sh
-  ``` End of GCC commands
+  ```
 
 - **For Clang in Debug mode:**
   ```bash
   ./build.sh clang Debug
   ./install.sh clang Debug
-  ``` End of Clang commands
+  ```
 
 **Note:** For Debug builds, choose the compiler you prefer—either GCC or Clang.
