@@ -1,61 +1,66 @@
-# epoch engine
-This is a backup for 1.5 since my pc is unstable and I lose operating system on reboots
+# Epoch Engine
 
-
-
-
+This backup represents version 1.5—a safeguard maintained for those moments when my PC becomes unstable and loses its operating system upon reboot.
 
 ## Multiplatform Build System
-Including CMake, vscode, msvc, builds.
 
+The engine supports several build environments including CMake, VSCode, and MSVC, allowing you to build on multiple platforms.
 
-
-
+---
 
 ### On Windows
 
-
-
-
-
-
-#### With MSVC - Microsoft Visual C/C++ Studio 2022 Community
-
-Project.sln - Solution File in the Main Directory
-
-
+#### With MSVC (Microsoft Visual C/C++ Studio 2022 Community)
+- Open the `Project.sln` file located in the main directory.
 
 #### With VSCode
-tasks.json
+- Use the provided `tasks.json` file to manage your build tasks.
 
-
-
+---
 
 ### On Linux
 
-
-
-
 #### With VSCode or VSCodium
-Uses a CMake Build system you can run tasks.json task, or build buttons at the bottom of the CMake Extension
-Or better yet Build And Run From Command-Line Terminal below!
+- The engine utilizes a CMake-based build system.
+- You can build using the task from `tasks.json`, the build buttons provided by the CMake extension, or directly from the command-line terminal.
 
+#### Built-in Fully Autonomous Build Scripts
+The repository includes scripts that install the Vulkan SDK, manage dependencies, and compile the project directly from the terminal.
 
+Before using these scripts, make sure they are executable:
 
+```bash
+chmod +x ./VulkanSDK/install_vulkansdk_debian.sh
+chmod +x ./VulkanSDK/uninstall_vulkansdk_debian.sh
+``` End of executable permissions
 
-#### Built-in Fully Autonomous Build Scripts - Install VulkanSDK, Dependencies, and Compile Directly from Commandline in Linux Terminal
-you will need to chmod -x the following to use:
+To install the Vulkan SDK on Debian-based systems, run:
+
+```bash
 ./VulkanSDK/install_vulkansdk_debian.sh
-./VulkanSDK/uninstall_vulkansdk_debian.sh - to uninstall obviously
+``` End of installation command
 
-./build.sh gcc Release
-./install.sh gcc Release
-./run.sh
+To uninstall the Vulkan SDK, run:
 
-or:
+```bash
+./VulkanSDK/uninstall_vulkansdk_debian.sh
+``` End of uninstallation command
 
-./build.sh clang Debug
-./install.sh clang Debug
+#### Build and Install Commands
 
+You can build and install the engine using the provided scripts. For example:
 
-Notice: the difference in compiler in the Debug builds, clang vs gcc which ever compiler you prefer to use.
+- **For GCC in Release mode:**
+  ```bash
+  ./build.sh gcc Release
+  ./install.sh gcc Release
+  ./run.sh
+  ``` End of GCC commands
+
+- **For Clang in Debug mode:**
+  ```bash
+  ./build.sh clang Debug
+  ./install.sh clang Debug
+  ``` End of Clang commands
+
+**Note:** For Debug builds, choose the compiler you prefer—either GCC or Clang.
