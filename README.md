@@ -1,6 +1,8 @@
-# Epoch Engine
+[![wakatime](https://wakatime.com/badge/user/17eacdf5-0954-4233-89e5-cf09a2e230eb/project/e1a31517-9db1-4413-b2d7-af27bba35efe.svg)](https://wakatime.com/badge/user/17eacdf5-0954-4233-89e5-cf09a2e230eb/project/e1a31517-9db1-4413-b2d7-af27bba35efe)
 
-This backup represents version 1.5—a safeguard maintained for those moments when my PC becomes unstable and loses its operating system upon reboot.
+# Cpp20_Vulkan_Repo_Template_2025
+
+This is the state of Vulkan 2025 - in functional and also header only fashion of course ;)
 
 ## Multiplatform Build System
 
